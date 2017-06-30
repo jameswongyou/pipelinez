@@ -1,17 +1,47 @@
-<project name="squares" default="main" basedir=".">
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="MyProject" basedir="." default="main">
+
+  <property name="fs.dir" value="src"/>
+  <property name="fs.includes" value="**/*.txt"/>
+  <property name="fs.excludes" value="**/*.tmp"/>
 
   <target name="main">
-
     <script language="javascript"> <![CDATA[
 
-      for (i=1; i<=10; i++) {
-        echo = squares.createTask("echo");
-        echo.setMessage(i*i);
+      // import statements
+      // importPackage(java.io);
+      importClass(java.io.File);
+
+      // Access to Ant-Properties by their names
+      dir      = project.getProperty("fs.dir");
+      includes = MyProject.getProperty("fs.includes");
+      excludes = self.getProject()  .getProperty("fs.excludes");
+
+      // Create a <fileset dir="" includes=""/>
+      fs = project.createDataType("fileset");
+      fs.setDir( new File(dir) );
+      fs.setIncludes(includes);
+      fs.setExcludes(excludes);
+
+      // Get the files (array) of that fileset
+      ds = fs.getDirectoryScanner(project);
+      srcFiles = ds.getIncludedFiles();
+
+      // iterate over that array
+      for (i=0; i<srcFiles.length; i++) {
+
+        // get the values via Java API
+        var basedir  = fs.getDir(project);
+        var filename = srcFiles[i];
+        var file = new File(basedir, filename);
+        var size = file.length();
+
+        // create and use a Task via Ant API
+        echo = MyProject.createTask("echo");
+        echo.setMessage(filename + ": " + size + " byte");
         echo.perform();
       }
-
-    ]]> </script>
-
+    ]]></script>
   </target>
-
 </project>
