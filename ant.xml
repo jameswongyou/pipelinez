@@ -1,0 +1,17 @@
+<project name="squares" default="main" basedir=".">
+
+  <target name="main">
+
+    <script language="javascript"> <![CDATA[
+
+      for (i=1; i<=10; i++) {
+        echo = squares.createTask("echo");
+        echo.setMessage(i*i);
+        echo.perform();
+      }
+
+    ]]> </script>
+
+  </target>
+
+</project>
