@@ -1,5 +1,3 @@
-donothing:
-
 javatest:
   mkdir /app
   cd /app
