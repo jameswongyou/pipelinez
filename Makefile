@@ -11,7 +11,8 @@ thirdMake:
 	sudo apt-get -y update
 
 fourthMake:
-	sudo apt-get -y install docker
+	du
 
 fifthMake:
+	sudo apt-get -y install docker
 	docker ps -a
