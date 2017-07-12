@@ -15,4 +15,9 @@ fourthMake:
 
 fifthMake:
 	sudo apt-get -y install docker.io
+	sudo service docker status
+	sudo service docker stop
+	sudo service docker status
+	sudo service docker start
+	sudo service docker status
 	sudo docker ps -a
