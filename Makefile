@@ -14,5 +14,5 @@ fourthMake:
 	du
 
 fifthMake:
-	sudo apt-get -y install docker
+	sudo apt-get -y install docker.io
 	docker ps -a
