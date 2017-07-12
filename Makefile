@@ -9,3 +9,6 @@ secondMake:
 	
 thirdMake:
 	sudo apt-get -y update
+
+fourthMake:
+	docker ps -a
