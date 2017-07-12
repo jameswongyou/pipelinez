@@ -4,6 +4,7 @@ javatest:
 	bash Patterdale-jvm/gradlew
 	
 secondMake:
+	whoami
 	sudo apt-get -y upgrade
 	
 thirdMake:
