@@ -4,7 +4,7 @@ javatest:
 	bash Patterdale-jvm/gradlew
 	
 secondMake:
-	apt-get -y upgrade
+	sudo apt-get -y upgrade
 	
 thirdMake:
-	apt-get -y update
+	sudo apt-get -y update
